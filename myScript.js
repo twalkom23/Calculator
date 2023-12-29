@@ -14,7 +14,7 @@ let minus = '-';
 let division = '/';
 let num1 ;
 let num2 ;
-let operater ;
+let operator ;
 
 function add(num1, num2) {
     return num1 + num2;
@@ -33,14 +33,22 @@ function divide(num1, num2) {
 function operate(equation) {
     let arrayEquation = equation.split(' '); //spliting the string in to an array
     num1 = arrayEquation[0];
-    operater = arrayEquation[1];
+    operator = arrayEquation[1];
     num2 = arrayEquation[2];
     num1 = parseInt(num1);
     num2 = parseInt(num2);
-    
+
+    //below i will be using the operater variable to decide what equation function to run and then will return the result
+    if (operator === '+') { return add(num1, num2); }
+    else if (operator === '-') { return subtract(num1, num2); }
+    else if (operator === '*') { return multiply(num1, num2); }
+    else {return divide(num1, num2); }
+
 }
 
-let test = operate('33 + 44');
+let test = operate('3.55 + 44');
+
+
 
 
 
