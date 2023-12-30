@@ -50,6 +50,9 @@ function operate(equation) {
 //This function will perform actions when buttons are clicked
 function calculatorInput() {
     let buttonClickString = ''; //string that numbers will be added to to be passed in to operate function
+    let finalAnswer ;
+    const equationLog = document.querySelector('.inputDisplay');
+    const answerLog = document.querySelector('.answer');
 
     const oneClick = document.querySelector('#one');
     const twoClick = document.querySelector('#two');
@@ -63,46 +66,163 @@ function calculatorInput() {
     const zeroClick = document.querySelector('#zero');
     const decimalClick = document.querySelector('#decimal')
     const divideClick = document.querySelector('#divide');
-    const clearClick = document.querySelector('#clear');
     const multiplyClick = document.querySelector('#multiply');
     const minusClick = document.querySelector('#minus');
     const plusClick = document.querySelector('#plus');
     const equalClick = document.querySelector('#equal');
+    const clearClick = document.querySelector('#clear');
     
     oneClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + one;
-        
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     twoClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + two;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     threeClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + three;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     fourClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + four;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     fiveClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + five;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })      
     sixClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + six;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     sevenClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + seven;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     eightClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + eight;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     nineClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + nine;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
     })
     zeroClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + zero;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
+    })
+    decimalClick.addEventListener('click', () => {
+        buttonClickString = buttonClickString + decimal;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
+    })
+    divideClick.addEventListener('click', () => {
+        buttonClickString = buttonClickString + division;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
+    })
+    multiplyClick.addEventListener('click', () => {
+        buttonClickString = buttonClickString + times;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
         
     })
-    
-    
+    minusClick.addEventListener('click', () => {
+        buttonClickString = buttonClickString + minus;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
+    })
+    plusClick.addEventListener('click', () => {
+        buttonClickString = buttonClickString + addition;
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
+    })
+    equalClick.addEventListener('click', () => {
+        console.log(buttonClickString);
+        finalAnswer = operate(buttonClickString);
+        answerLog.innerHTML = "";
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (finalAnswer);
+        answerLog.appendChild(content);
+        
+    })
+    clearClick.addEventListener('click', () => {
+        buttonClickString = '';
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+    })
 }
 
 calculatorInput();

@@ -26,6 +26,10 @@ body {
     margin: 3px;
 }
 
+button:active {
+    background-color: black;
+}
+
 button {
     width: 45px;
     height: 45px;
@@ -41,10 +45,30 @@ button {
     flex-direction: column;
     
 }
+#decimal:active {
+    background-color: black;
+}
 #decimal {
     background-color: #d3d3d3;
 }
-
+#divide:active {
+    background-color: black;
+}
+#multiply:active {
+    background-color: black;
+}
+#minus:active {
+    background-color: black;
+}
+#plus:active {
+    background-color: black;
+}
+#equal:active {
+    background-color: black;
+}
+#clear:active {
+    background-color: black;
+}
 #divide, #multiply, #minus, #plus {
     background-color: #ffbf00;
 }
@@ -64,10 +88,10 @@ button {
     justify-content: space-around;
     margin-right: 100px;
 }
-#inputDisplay {
+.inputDisplay {
     color: #fffff0;
 }
-#answer {
+.answer {
     color: #afe1af;
     font-weight: bold;
     font-size: 30px;
