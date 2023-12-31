@@ -30,6 +30,10 @@ function divide(num1, num2) {
     return num1/num2;
 }
 
+function rounded(number) {
+    return Math.round(number * 100) / 100;
+}
+
 //function taking the input from the buttons and then running the equation
 function operate(equation) {
     let arrayEquation = equation.split(' '); //spliting the string in to an array
@@ -40,10 +44,10 @@ function operate(equation) {
     num2 = parseInt(num2);
 
     //below i will be using the operater variable to decide what equation function to run and then will return the result
-    if (operator === '+') { return add(num1, num2); }
-    else if (operator === '-') { return subtract(num1, num2); }
-    else if (operator === '*') { return multiply(num1, num2); }
-    else {return divide(num1, num2); }
+    if (operator === '+') { return rounded(add(num1, num2)); }
+    else if (operator === '-') { return rounded(subtract(num1, num2)); }
+    else if (operator === '*') { return rounded(multiply(num1, num2)); }
+    else {return rounded(divide(num1, num2)); }
 
 }
 
@@ -209,7 +213,6 @@ function calculatorInput() {
         equationLog.appendChild(content);
     })
     equalClick.addEventListener('click', () => {
-        console.log(buttonClickString);
         finalAnswer = operate(buttonClickString);
         answerLog.innerHTML = "";
         const content = document.createElement('p');
@@ -226,6 +229,3 @@ function calculatorInput() {
 }
 
 calculatorInput();
-
-
-
