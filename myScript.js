@@ -38,7 +38,21 @@ function rounded(number) {
 
 //function taking the input from the buttons and then running the equation
 function operate(equation) {
-    let arrayEquation = equation.split(' ');
+let arrayEquation = equation.split(' ');
+console.log(arrayEquation);
+let checkFirst = arrayEquation[0];
+      //checking to make sure either the last or first values in the equation are operators and then removing them if so
+      while (arrayEquation[0] === ''){
+        //checks if its a minus statement and makes the following number a negative
+        if (arrayEquation[1] === '-' && arrayEquation[2] !== ''){
+            arrayEquation[0] = '0';
+        }
+        else {
+            arrayEquation.splice(0, 2);
+        }
+    }   
+  
+
      //spliting the string in to an array
     num1 = arrayEquation[0];
     operator = arrayEquation[1];
