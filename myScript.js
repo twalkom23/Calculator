@@ -38,25 +38,17 @@ function rounded(number) {
 
 //function taking the input from the buttons and then running the equation
 function operate(equation) {
-    let arrayEquation = equation.split(' ')
-    
-    ; //spliting the string in to an array
+    let arrayEquation = equation.split(' ');
+     //spliting the string in to an array
     num1 = arrayEquation[0];
     operator = arrayEquation[1];
     num2 = arrayEquation[2];
     num1 = parseFloat(num1);
     num2 = parseFloat(num2);
-    let x ;
     
     
-    //This checks if it is a simple 1 operator equation, if not it will pass in to a loop that operates one equation at a time
-    if (arrayEquation.length === 3) {
-        if (operator === '+') {return rounded(add(num1, num2));}
-        else if (operator === '-') { return rounded(subtract(num1, num2)); }
-        else if (operator === '*') { return rounded(multiply(num1, num2)); }
-        else {return rounded(divide(num1, num2)); }
-    }
-    else {
+    //This will run through the equation until it is down to a single answer
+        let x ;
         while (arrayEquation.length !== 1){
             num1 = arrayEquation[0];
             operator = arrayEquation[1];
@@ -65,7 +57,6 @@ function operate(equation) {
             num2 = parseFloat(num2);
             if (operator === '+') {
                 x = rounded(add(num1, num2));
-                console.log(x);
                 arrayEquation.splice(0, 3, x);
             }
             else if (operator === '-') {
@@ -84,7 +75,7 @@ function operate(equation) {
         return arrayEquation;
         
     }
-}
+
 
 
 
