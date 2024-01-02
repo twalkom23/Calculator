@@ -16,6 +16,8 @@ let division = ' / ';
 let num1 ;
 let num2 ;
 let operator ;
+let buttonClickString = '';
+let finalAnswer ;
 
 function add(num1, num2) {
     return num1 + num2;
@@ -36,24 +38,59 @@ function rounded(number) {
 
 //function taking the input from the buttons and then running the equation
 function operate(equation) {
-    let arrayEquation = equation.split(' '); //spliting the string in to an array
+    let arrayEquation = equation.split(' ')
+    
+    ; //spliting the string in to an array
     num1 = arrayEquation[0];
     operator = arrayEquation[1];
     num2 = arrayEquation[2];
-    num1 = parseInt(num1);
-    num2 = parseInt(num2);
-
-    //below i will be using the operater variable to decide what equation function to run and then will return the result
-    if (operator === '+') { return rounded(add(num1, num2)); }
-    else if (operator === '-') { return rounded(subtract(num1, num2)); }
-    else if (operator === '*') { return rounded(multiply(num1, num2)); }
-    else {return rounded(divide(num1, num2)); }
-
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
+    let x ;
+    
+    
+    //This checks if it is a simple 1 operator equation, if not it will pass in to a loop that operates one equation at a time
+    if (arrayEquation.length === 3) {
+        if (operator === '+') {return rounded(add(num1, num2));}
+        else if (operator === '-') { return rounded(subtract(num1, num2)); }
+        else if (operator === '*') { return rounded(multiply(num1, num2)); }
+        else {return rounded(divide(num1, num2)); }
+    }
+    else {
+        while (arrayEquation.length !== 1){
+            num1 = arrayEquation[0];
+            operator = arrayEquation[1];
+            num2 = arrayEquation[2];
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+            if (operator === '+') {
+                x = rounded(add(num1, num2));
+                console.log(x);
+                arrayEquation.splice(0, 3, x);
+            }
+            else if (operator === '-') {
+                x = rounded(subtract(num1, num2));
+                arrayEquation.splice(0, 3, x);
+            }
+            else if (operator === '*') {
+                x = rounded(multiply(num1, num2));
+                arrayEquation.splice(0, 3, x);
+            }
+            else {
+                x = rounded(divide(num1, num2));
+                arrayEquation.splice(0, 3, x);
+            }
+        }
+        return arrayEquation;
+        
+    }
 }
+
+
 
 //This function will perform actions when buttons are clicked
 function calculatorInput() {
-    let buttonClickString = ''; //string that numbers will be added to to be passed in to operate function
+    let buttonClickString = '';
     let finalAnswer ;
     const equationLog = document.querySelector('.inputDisplay');
     const answerLog = document.querySelector('.answer');
@@ -75,6 +112,8 @@ function calculatorInput() {
     const plusClick = document.querySelector('#plus');
     const equalClick = document.querySelector('#equal');
     const clearClick = document.querySelector('#clear');
+   
+    
     
     oneClick.addEventListener('click', () => {
         buttonClickString = buttonClickString + one;
@@ -225,7 +264,8 @@ function calculatorInput() {
         buttonClickString = '';
         equationLog.innerHTML = "";
         answerLog.innerHTML = "";
-    })
+     })
+
 }
 
 calculatorInput();
