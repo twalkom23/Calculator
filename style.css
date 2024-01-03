@@ -4,11 +4,18 @@ body {
 
 .calculator {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 600px;
     font-family: monospace;
     
+}
+
+.heading {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: white;
 }
 
 .buttons {
