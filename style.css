@@ -45,6 +45,14 @@ button {
     flex-direction: column;
     
 }
+#backspace {
+    background-color: black;
+    color: white;
+}
+#backspace:active {
+    background-color: red;
+}
+
 #decimal:active {
     background-color: black;
 }

@@ -95,7 +95,9 @@ let arrayEquation = equation.split(' ');
         
     }
 
+function backSpace(input) {
 
+}
 
 
 //This function will perform actions when buttons are clicked
@@ -122,6 +124,7 @@ function calculatorInput() {
     const plusClick = document.querySelector('#plus');
     const equalClick = document.querySelector('#equal');
     const clearClick = document.querySelector('#clear');
+    const backSpaceClick = document.querySelector('#backspace');
    
     
     
@@ -274,6 +277,20 @@ function calculatorInput() {
         buttonClickString = '';
         equationLog.innerHTML = "";
         answerLog.innerHTML = "";
+     })
+     backSpaceClick.addEventListener('click', () =>{
+        equationLog.innerHTML = "";
+        answerLog.innerHTML = "";
+        if (buttonClickString[buttonClickString.length - 1] === ' ') {
+            buttonClickString = buttonClickString.slice(0, -3);
+        }
+        else {
+            buttonClickString = buttonClickString.slice(0, -1);
+        }
+        const content = document.createElement('p');
+        content.classList.add('content');
+        content.textContent = (buttonClickString);
+        equationLog.appendChild(content);
      })
 
 }
